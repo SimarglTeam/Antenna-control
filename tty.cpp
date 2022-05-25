@@ -19,14 +19,14 @@ bool TTY::IsOK() const {
 void TTY::Connect(LPCWSTR port, int baudrate) {
 
     m_Handle =
-        CreateFile( //Создание файла для работы с COM-портом
-            port, //Указатель на строку с именем открываемого или создаваемого файла
-            GENERIC_READ | GENERIC_WRITE, //Тип доступа к файлу: и для записи и для чтения
-            0, //Параметр совместного доступа к файлу (Всегда 0, т.к. наш порт таким сделать нельзя)
-            NULL, //Атрибут защиты файла, но для использования нужен Windows NT, потому NULL
-            OPEN_EXISTING, //Управление режимами автосоздания, автоусечения файла и тп. Всегда равен OPEN_EXISTING
-            FILE_ATTRIBUTE_NORMAL, //Данный атрибут используется для асинхронной работы или при фоновой обработке ввода/вывода
-            NULL); //При работе с портами всегда NULL. А так задает описатель-шаблона
+        CreateFile( 
+            port, 
+            GENERIC_READ | GENERIC_WRITE, 
+            0, 
+            NULL, 
+            OPEN_EXISTING, 
+            FILE_ATTRIBUTE_NORMAL, 
+            NULL);
 
     if (m_Handle == INVALID_HANDLE_VALUE) {
         throw TTYException();

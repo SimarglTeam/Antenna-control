@@ -2,8 +2,7 @@
 #ifndef TTY_H
 #define TTY_H
 
-#define NOMINMAX //Otherwise, the windows API will detect macros min and max 
-//that conflict with std::max and std::min in vector
+#define NOMINMAX 
 
 #include <windows.h>
 #include <vector>
@@ -19,11 +18,10 @@ struct TTY {
     void Connect(LPCWSTR port, int baudrate);
     void Disconnect();
 
-    virtual void Write(const std::vector<unsigned char>& data); //Send data to com-port
-    virtual void Read(std::vector<unsigned char>& data); //Read received data
+    virtual void Write(const std::vector<unsigned char>& data); 
+    virtual void Read(std::vector<unsigned char>& data); 
 
     HANDLE m_Handle;
-
 };
 
 struct TTYException {

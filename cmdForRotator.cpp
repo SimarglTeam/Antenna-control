@@ -1,7 +1,7 @@
 #include "cmdForRotator.h"
 
 void cmdForRotator::connectToPort() {
-	tty.Connect(L"COM1", 9600); //Connecting to port "COM1", speed of port: 9600
+	tty.Connect(L"COM1", 9600);
 }
 
 void cmdForRotator::turnToTheRight() {
